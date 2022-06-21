@@ -1,15 +1,19 @@
-import React, { useContext, useNavigate } from 'react'
-import './posts.css'
+import React, { useState, useEffect } from 'react'
 
 import Post from '../post/Post'
-import blogData from '../../contexts/blogData'
+import './posts.css'
 
 export default function Posts() {
-    const { posts } = useContext(blogData);
-    // const navigate = useNavigate();
-    // const handleClick = () => {
-    //     navigate('/post-view/'+ posts[0].id);
-    // };
+    const [posts, setPosts] = useState({});
+    const getPostsData = async () => {
+        const response = await fetch('/data.json')
+        const json = await (response).json();
+        setPosts(json.posts);
+    };
+    useEffect(()=> {
+        getPostsData();
+    }, []);
+
     const postArr = [];
     for (let i = 0; i < posts.length; i++) {
         

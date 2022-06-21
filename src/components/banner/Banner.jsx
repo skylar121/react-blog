@@ -19,6 +19,17 @@ function Banner() {
     )
 }
 
+function BannerInPostView({id}) {
+	return (
+		<div className="banner" style={{backgroundImage: `url(../images/post-background${id}.jpg)`}}>
+			<div className="max-width">
+				<div className="banner-contents">
+					<p className="today">May <em>25</em> Wednesday</p>
+				</div>
+			</div>
+		</div>
+	)
+}
 
 
-export default Banner
+export {Banner, BannerInPostView} 

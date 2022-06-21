@@ -8,7 +8,6 @@
 	background: var(--white-color);
 	text-align: center;
 	font-size: 2rem;
-	
 }
 
 .about h2,
@@ -48,6 +47,7 @@
 	justify-content: center;
 	gap: 0.8rem;
 }
+
 .categories li a {
 	background: var(--gray-background);
 	color: var(--gray-text);

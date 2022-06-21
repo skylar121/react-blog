@@ -63,4 +63,12 @@ function RegisterBtn({onClick}) {
     )
 }
 
-export {Profile, WriteBtn, LogoutBtn, LoginBtn, RegisterBtn}
+function LikeBtn(){
+    return (
+        <button className="btn-like">
+            Like
+        </button>
+    )
+}
+
+export {Profile, WriteBtn, LogoutBtn, LoginBtn, RegisterBtn, LikeBtn}

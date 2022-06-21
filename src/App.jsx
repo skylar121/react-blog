@@ -1,12 +1,18 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import "./css/global.css"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage'
+import PostView from './pages/PostView';
 
 
 function App() {
 	return (
-		<Homepage />
+		<Router>
+			<Routes>
+				<Route path="/" element={<Homepage />} />
+				<Route path="/post-view/:id" element={<PostView />} />
+				<Route path="*" element={<h1>No Page Found</h1>} />
+			</Routes>
+		</Router>
 	);
 }
 

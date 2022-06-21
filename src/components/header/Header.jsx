@@ -14,7 +14,7 @@ export default function Header() {
 		<header>
 				<div className="max-width">
 					<h1>
-						<a href="./">
+						<a href="/">
 							<img src={Logo} alt="My Blog" />
 						</a>
 					</h1>

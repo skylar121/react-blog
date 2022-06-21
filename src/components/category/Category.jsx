@@ -1,16 +1,14 @@
 import './category.css'
 
-function Catagory({category}) {
-  const categoryArr = [];
-  for (let i = 0; i < category.length; i++) {
-    categoryArr.push(<dd>{category[i]}</dd>);
-  }
+function Category({category}) {
   return (
     <dl className="category">
         <dt className="a11y-hidden">Category</dt>
-        {categoryArr}
+        {category.map((item) => (
+          <dd key={item}>{item}</dd>
+        ))}
     </dl>
   )
 }
 
-export default Catagory;
+export default Category;

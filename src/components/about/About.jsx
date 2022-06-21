@@ -27,22 +27,22 @@ export default function About() {
             </ul>
             <h3>Follow</h3>
             <ul className="sns">
-                <li>
+                <li key='facebook'>
                     <a href="#">
                         <img src={iconFacebook} alt="Facebook" />
                     </a>
                 </li>
-                <li>
+                <li key='twitter'>
                     <a href="#">
                         <img src={iconTwitter} alt="Twitter" />
                     </a>
                 </li>
-                <li>
+                <li key='instagram'>
                     <a href="#">
                         <img src={iconInstagram} alt="Instagram" />
                     </a>
                 </li>
-                <li>
+                <li key='github'>
                     <a href="#">
                         <img src={iconGithub} alt="GitHub" />
                     </a>
