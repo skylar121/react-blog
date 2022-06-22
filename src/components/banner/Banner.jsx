@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import './banner.css'
 import blogData from '../../contexts/blogData'
 
-function Banner() {
+export default function Banner() {
 	const { blog } = useContext(blogData);
     return (
         <div className="banner">
@@ -18,18 +18,3 @@ function Banner() {
 		</div>
     )
 }
-
-function BannerInPostView({id}) {
-	return (
-		<div className="banner" style={{backgroundImage: `url(../images/post-background${id}.jpg)`}}>
-			<div className="max-width">
-				<div className="banner-contents">
-					<p className="today">May <em>25</em> Wednesday</p>
-				</div>
-			</div>
-		</div>
-	)
-}
-
-
-export {Banner, BannerInPostView} 

@@ -9,7 +9,7 @@ import Footer from '../components/footer/Footer';
 import Author from '../components/author/Author';
 import { LikeBtn } from '../components/buttons/Buttons'
 import Category from '../components/category/Category';
-import { BannerInPostView } from '../components/banner/Banner';
+import BannerInPostView from '../components/banner/BannerInPostView';
 
 export default function PostView() {
 	const [loaded, setLoaded] = useState(false);
@@ -25,12 +25,11 @@ export default function PostView() {
         getpostData();
     }, []);
 
-    
 	return (
 		<>
 			{loaded ? <>
 				<Header />
-				<BannerInPostView id={id} created={post.created}/>
+				<BannerInPostView id={id} mainBg={post.mainBg} created={post.created}/>
 				<div className="view">
 					<div className="max-width">
 						<section className="wrap-box">

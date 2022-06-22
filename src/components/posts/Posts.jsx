@@ -4,11 +4,13 @@ import Post from '../post/Post'
 import './posts.css'
 
 export default function Posts() {
+    const [loaded, setLoaded] = useState(false);
     const [posts, setPosts] = useState({});
     const getPostsData = async () => {
         const response = await fetch('/data.json')
         const json = await (response).json();
         setPosts(json.posts);
+        setLoaded(true);
     };
     useEffect(()=> {
         getPostsData();
@@ -16,13 +18,18 @@ export default function Posts() {
 
     const postArr = [];
     for (let i = 0; i < posts.length; i++) {
-        
         postArr.push(<Post data={posts[i]}/>)
     }    
 
     return (
-            <ul className="posts">
-                {postArr.reverse()}
-            </ul>
+        <>
+        { loaded ? <ul className="posts">
+        {/* map으로 바꾸기, reverse는 최신 게시물이 맨위로 오도록 */}
+        {postArr.reverse()}
+        </ul> 
+        : 
+        <p>로딩중...</p> }
+        </>
+            
     )
 }

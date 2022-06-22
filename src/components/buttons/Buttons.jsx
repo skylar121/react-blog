@@ -1,5 +1,4 @@
-import React from 'react'
-// import "../../css/global.css"
+import { Link } from 'react-router-dom';
 import "./buttons.css"
 
 import profileImg from '../../assets/profile.jpg'
@@ -12,9 +11,9 @@ import iconRegister from '../../assets/icon-register.svg'
 function Profile() {
     return (
         <li className="profile-img">
-            <a href="#">
+            <Link to={''}>
                 <img src={profileImg} alt="My Page" />
-            </a>
+            </Link>
         </li>
     )
 }
@@ -22,10 +21,10 @@ function Profile() {
 function WriteBtn() {
     return (
         <li>
-            <a href="#" className="button">
+            <Link to={''} className="button">
                 <img src={iconModifyWhite} alt="" />
                 <span>Write</span>
-            </a>
+            </Link>
         </li>
     )
 }
@@ -44,10 +43,10 @@ function LogoutBtn({onClick}) {
 function LoginBtn({onClick}) {
     return (
         <li onClick={onClick}>
-            <a href="#" className="button gray">
+            <Link to={''} className="button gray">
                 <img src={iconLogin} alt="" />
                 <span>Login</span>
-            </a>
+            </Link>
         </li>
     )
 }
@@ -55,10 +54,10 @@ function LoginBtn({onClick}) {
 function RegisterBtn({onClick}) {
     return (
         <li className="only-pc" onClick={onClick}>
-            <a href="#" className="button gray">
+            <Link to={''} className="button gray">
                 <img src={iconRegister} alt="" />
                 <span>Register</span>
-            </a>
+            </Link>
         </li>
     )
 }
@@ -70,5 +69,25 @@ function LikeBtn(){
         </button>
     )
 }
+
+// function postEditBtn() {
+//     return (
+//         <Link to={''} className="btn-modify">
+//             <span className="a11y-hidden">modify</span>
+//         </Link>
+//     )
+// }
+
+// function postDeleteBtn() {
+//     return (
+        
+//     )
+// }
+
+// function previousPageBtn() {
+//     return (
+        
+//     )
+// }
 
 export {Profile, WriteBtn, LogoutBtn, LoginBtn, RegisterBtn, LikeBtn}
