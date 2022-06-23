@@ -18,13 +18,13 @@ export default function Posts() {
 
     const postArr = [];
     for (let i = 0; i < posts.length; i++) {
-        postArr.push(<Post data={posts[i]}/>)
+        postArr.push(<Post key={i+1} data={posts[i]}/>)
     }    
 
     return (
         <>
         { loaded ? <ul className="posts">
-        {/* map으로 바꾸기, reverse는 최신 게시물이 맨위로 오도록 */}
+        {/* reverse는 최신 게시물이 맨위로 오도록 */}
         {postArr.reverse()}
         </ul> 
         : 

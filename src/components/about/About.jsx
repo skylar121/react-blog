@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import blogData from '../../contexts/blogData'
 
+import Category from '../category/Category'
 import './about.css'
 
 import profileImg from '../../assets/profile.jpg'
@@ -11,10 +13,6 @@ import iconGithub from '../../assets/Github.svg'
 
 export default function About() {
     const { users } = useContext(blogData);
-    let categoriesArr = [];
-    for (let i = 0; i < users[0].category.length; i++) {
-        categoriesArr.push(<li><a href="#">{users[0].category[i]}</a></li>)
-    }
     return (
         <aside className="about">
             <h2>About Me</h2>
@@ -23,29 +21,35 @@ export default function About() {
             <p className="user-description">{users[0].userInfo}</p>
             <h3>Categories</h3>
             <ul className="categories">
-                {categoriesArr}
+                {users[0].category.map((item, index) => {
+                    return (
+                        <li key={index}><Link to={''}>{item}</Link></li>
+                    )
+                })}
             </ul>
+            {/* <Category category={users[0].category}/> */}
+
             <h3>Follow</h3>
             <ul className="sns">
-                <li key='facebook'>
-                    <a href="#">
+                <li key={'facebook'}>
+                    <Link to={''}>
                         <img src={iconFacebook} alt="Facebook" />
-                    </a>
+                    </Link>
                 </li>
-                <li key='twitter'>
-                    <a href="#">
+                <li key={'twitter'}>
+                    <Link to={''}>
                         <img src={iconTwitter} alt="Twitter" />
-                    </a>
+                    </Link>
                 </li>
-                <li key='instagram'>
-                    <a href="#">
+                <li key={'instagram'}>
+                    <Link to={''}>
                         <img src={iconInstagram} alt="Instagram" />
-                    </a>
+                    </Link>
                 </li>
-                <li key='github'>
-                    <a href="#">
+                <li key={'github'}>
+                    <Link to={''}>
                         <img src={iconGithub} alt="GitHub" />
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </aside>

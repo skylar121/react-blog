@@ -4,7 +4,7 @@ const blogData = createContext({
 	"blog": {
 		"mainTitle": "My BLOG",
 		"subTitle": "React & Node",
-		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nostrum dolor provident beatae deserunt magnam, illo neque. Maiores ipsum commodi dolorum beatae aliquid laboriosam est"
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nostrum dolor provident beatae deserunt magnam, illo neque. Maiores ipsum commodi dolorum beatae aliquid laborios"
 	},
 	"posts": [
 		{

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import '../css/postview.css'
 import '../css/wrapbox.css'
@@ -50,16 +51,16 @@ export default function PostView() {
 									})}
 								</div>
 								<div className="btn-group">
-									<a href="#none" className="btn-modify">
+									<Link to={''} className="btn-modify">
 										<span className="a11y-hidden">modify</span>
-									</a>
+									</Link>
 									<button type="button" className="btn-delete">
 										<span className="a11y-hidden">delete</span>
 									</button>
 								</div>
-								<a href="./" className="btn-back">
+								<Link to={'/'} className="btn-back">
 									<span className="a11y-hidden">Back</span>
-								</a>
+								</Link>
 							</div>
 						</section>
 					</div>
