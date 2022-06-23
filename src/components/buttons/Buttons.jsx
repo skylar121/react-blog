@@ -7,7 +7,6 @@ import iconLogOut from '../../assets/icon-logout.svg'
 import iconLogin from '../../assets/icon-login.svg'
 import iconRegister from '../../assets/icon-register.svg'
 
-
 function Profile() {
     return (
         <li className="profile-img">
@@ -70,24 +69,28 @@ function LikeBtn(){
     )
 }
 
-// function postEditBtn() {
-//     return (
-//         <Link to={''} className="btn-modify">
-//             <span className="a11y-hidden">modify</span>
-//         </Link>
-//     )
-// }
+function PostModifyBtn() {
+    return (
+        <Link to={''} className="btn-modify">
+            <span className="a11y-hidden">modify</span>
+        </Link>
+    )
+}
 
-// function postDeleteBtn() {
-//     return (
-        
-//     )
-// }
+function PostDeleteBtn() {
+    return (
+        <button type="button" className="btn-delete">
+            <span className="a11y-hidden">delete</span>
+        </button>
+    )
+}
 
-// function previousPageBtn() {
-//     return (
-        
-//     )
-// }
+function PreviousPageBtn() {
+    return (
+        <Link to={'/'} className="btn-back">
+            <span className="a11y-hidden">Back</span>
+        </Link>
+    )
+}
 
-export {Profile, WriteBtn, LogoutBtn, LoginBtn, RegisterBtn, LikeBtn}
+export {Profile, WriteBtn, LogoutBtn, LoginBtn, RegisterBtn, LikeBtn, PostModifyBtn, PostDeleteBtn, PreviousPageBtn}

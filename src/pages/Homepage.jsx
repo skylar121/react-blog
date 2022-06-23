@@ -10,10 +10,10 @@ import Footer from '../components/footer/Footer';
 function Homepage() {
 	return (
 		<>
-                <Header />
-                <Banner />
-                <Main />
-                <Footer />                
+            <Header />
+            <Banner />
+            <Main />
+            <Footer />  
 		</>
 	);
 }

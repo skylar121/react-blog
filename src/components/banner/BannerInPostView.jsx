@@ -1,7 +1,6 @@
 import React from 'react'
 import './bannerInPostView.css'
 
-
 export default function BannerInPostView({mainBg, created}) {
 	const createdDate = new Date(created);
 	const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import blogData from '../../contexts/blogData'
+import { BlogContext } from '../../contexts/BlogContext'
 
 import Category from '../category/Category'
 import './about.css'
@@ -12,22 +12,22 @@ import iconInstagram from '../../assets/Instagram.svg'
 import iconGithub from '../../assets/Github.svg'
 
 export default function About() {
-    const { users } = useContext(blogData);
+	const { blogData } = useContext(BlogContext);
     return (
         <aside className="about">
             <h2>About Me</h2>
             <img src={profileImg} alt="" className="user-profile" />
-            <p className="user-name">{users[0].name}</p>
-            <p className="user-description">{users[0].userInfo}</p>
+            <p className="user-name">{blogData.users[0].name}</p>
+            <p className="user-description">{blogData.users[0].userInfo}</p>
             <h3>Categories</h3>
             <ul className="categories">
-                {users[0].category.map((item, index) => {
+                {blogData.users[0].category.map((item, index) => {
                     return (
                         <li key={index}><Link to={''}>{item}</Link></li>
                     )
                 })}
             </ul>
-            {/* <Category category={users[0].category}/> */}
+            {/* <Category category={blogData.users[0].category}/> */}
 
             <h3>Follow</h3>
             <ul className="sns">

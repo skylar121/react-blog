@@ -5,10 +5,11 @@ import Category from '../category/Category'
 import Author from '../author/Author'
 
 export default function Post({data}) {
-  const {thumbnail, title, category, contents, profileImg, created, userName, id} = data; // = posts[index]
+    const {thumbnail, title, category, contents, profileImg, created, userName, id} = data; // = posts[index]
+
     return (
-        <li key={id} className="post">
-            <Link to={`/post-view/${id}`}>
+        <li className="post" >
+            <Link to={`/post-view/${id}`} >
             <article>
                 <img src={'../.'+ thumbnail} alt="" />
                 <div className="contents-wrap">

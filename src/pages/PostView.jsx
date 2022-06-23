@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useLayoutEffect, useContext } from 'react'
 import { useParams } from "react-router-dom";
 import '../css/postview.css'
 import '../css/wrapbox.css'
@@ -8,67 +7,61 @@ import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 
 import Author from '../components/author/Author';
-import { LikeBtn } from '../components/buttons/Buttons'
+import { LikeBtn, PostModifyBtn, PostDeleteBtn, PreviousPageBtn } from '../components/buttons/Buttons'
 import Category from '../components/category/Category';
 import BannerInPostView from '../components/banner/BannerInPostView';
+import { BlogContext } from '../contexts/BlogContext';
 
 export default function PostView() {
-	const [loaded, setLoaded] = useState(false);
+	const { blogData } = useContext(BlogContext);
     const { id } = useParams();
-    const [post, setpost] = useState({});
-    const getpostData = async () => {
-        const response = await fetch('/data.json')
-        const json = await (response.json());
-        setpost(json.posts[parseInt(id)-1]);
-		setLoaded(true);
-    };
-    useEffect(()=> {
-        getpostData();
-    }, []);
+	const idNum = parseInt(id);
+	let post = {};
+	for (let i = 0; i < blogData.posts.length; i++) {
+		if (idNum === blogData.posts[i].id) {
+			post = blogData.posts[i];
+		}
+	}
+	
+    useLayoutEffect(() => {
+        window.scrollTo({top: 0, left: 0});
+    })
 
 	return (
 		<>
-			{loaded ? <>
-				<Header />
-				<BannerInPostView id={id} mainBg={post.mainBg} created={post.created}/>
-				<div className="view">
-					<div className="max-width">
-						<section className="wrap-box">
-							<div className="inner">
-					<Author userName={post.userName} img="../../assets/profile.jpg" date={post.created}/>
-					<Category category={post.category} />
-								<div className="title-wrap">
-									<h2>{post.title}</h2>
-									<LikeBtn />
-								</div>
-								<hr />
-								<div className="view-contents">
-									{post.contents.map((item) => {
-										if(item.type === 'img') {
-											return <img src={'../.'+item.src} alt=""/>
-										}
-										else { return <p>{item.text}</p>}
-									})}
-								</div>
-								<div className="btn-group">
-									<Link to={''} className="btn-modify">
-										<span className="a11y-hidden">modify</span>
-									</Link>
-									<button type="button" className="btn-delete">
-										<span className="a11y-hidden">delete</span>
-									</button>
-								</div>
-								<Link to={'/'} className="btn-back">
-									<span className="a11y-hidden">Back</span>
-								</Link>
+			<Header />
+			<BannerInPostView id={id} mainBg={post.mainBg} created={post.created}/>
+			<div className="view">
+				<div className="max-width">
+					<section className="wrap-box">
+						<div className="inner">
+				<Author userName={post.userName} img="../../assets/profile.jpg" date={post.created}/>
+				<Category category={post.category} />
+							<div className="title-wrap">
+								<h2>{post.title}</h2>
+								<LikeBtn />
 							</div>
-						</section>
-					</div>
+							<hr />
+							<div className="view-contents">
+								{post.contents.map((item) => {
+									if(item.type === 'img') {
+										return <img src={'../.'+item.src} alt=""/>
+									}
+									else {
+										return <p>{item.text}</p>
+									}
+								})}
+							</div>
+							<div className="btn-group">
+								<PostModifyBtn />
+								<PostDeleteBtn />
+							</div>
+							<PreviousPageBtn />
+						</div>
+					</section>
 				</div>
-				<Footer />
-			</> 
-			: <p>로딩중...</p>
-			}
+			</div>
+			<Footer />
 		</>
 	)
 }
