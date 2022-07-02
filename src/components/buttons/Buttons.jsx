@@ -6,6 +6,7 @@ import iconModifyWhite from '../../assets/icon-modify-white.svg'
 import iconLogOut from '../../assets/icon-logout.svg'
 import iconLogin from '../../assets/icon-login.svg'
 import iconRegister from '../../assets/icon-register.svg'
+import { useState } from 'react';
 
 function Profile() {
     return (
@@ -62,8 +63,12 @@ function RegisterBtn({onClick}) {
 }
 
 function LikeBtn(){
+    const [isLiked, setIsLiked] = useState(false);
+    function handleClickLikeBtn (e) {
+        setIsLiked((curr) => !curr);
+    }
     return (
-        <button className="btn-like">
+        <button className={isLiked? "btn-like active" : "btn-like"} onClick={handleClickLikeBtn}>
             Like
         </button>
     )
