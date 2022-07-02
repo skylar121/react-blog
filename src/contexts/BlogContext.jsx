@@ -7,7 +7,7 @@ const BlogContextProvider = ({children}) => {
 	const [loaded, setLoaded] = useState(false);
 	const [blogData, setBlogData] = useState({});
 	const getpostData = async () => {
-		try {const response = await fetch('data.json');
+		try {const response = await fetch('/data.json');
 		const json = await (response.json());
 		setBlogData(json);
 		setLoaded(true);
